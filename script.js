@@ -1,5 +1,5 @@
 const myLibrary = [];
-
+const alert = document.querySelector(".alert");
 function Book(title,author,pages,read) {
     this.title = title;
     this.author = author;
@@ -71,20 +71,46 @@ function render(startIndex=0){
     
 
 function addBookToList(){
+    const titleInput = document.getElementById("name").value;
+    const authorInput = document.getElementById("author").value;
+    const pagesInput = document.getElementById("pages").value;
+    const readInput = document.querySelector('input[name="read"]:checked').value;
+    if (titleInput === "" || authorInput === "" || pagesInput === "" || !readInput) {
+        alertMessagePop(true);
+        document.getElementById("name").value = "";
+        document.getElementById("author").value = "";
+        document.getElementById("pages").value = "";
+
+        document.querySelector('input[id="readNo"]').checked = true;
+
+
+        return;
+    }
+    alertMessagePop(false);
     const book = {
-        title: document.getElementById("name").value,
-        author: document.getElementById("author").value,
-        pages: document.getElementById("pages").value,
-        read: document.querySelector('input[name="read"]:checked').value
+        title: titleInput,
+        author: authorInput,
+        pages: pagesInput,
+        read: readInput
     };
+    
     myLibrary.push(book);
+    
     document.getElementById("name").value = "";
     document.getElementById("author").value = "";
     document.getElementById("pages").value = "";
-    document.querySelector('input[name="read"]:checked').checked = false;
+    document.querySelector('input[id="readNo"]').checked = true;
     addBookToGrid(book, myLibrary.length-1);
 }
+function alertMessagePop(bool){
+    const alertMsg = document.querySelector(".alert");
+    if(bool){
+    alertMsg.classList.add("closed");}
+    else{
+        alertMsg.classList.remove("closed");}
 
+    }
+
+const inputs = document.querySelectorAll("input");
 
 submitBtn.addEventListener("click",addBookToList);
-submitBtn.addEventListener("click",openPopup);

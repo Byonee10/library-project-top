@@ -32,7 +32,7 @@
                         </div>
                         <div class = labelinput>
                           <label for="pages">Pages</label>
-                          <input type="number" name="pages" min="0" id = "pages"/>
+                          <input type="number" name="pages" min="1" id = "pages"/>
                         </div>
                         <div class = "radio-container">
                           <p>Read?</p>
@@ -42,7 +42,7 @@
                           </div>
                           
                           <div>
-                            <input type="radio" name="read" id = "readNo" value = "No"/>
+                            <input type="radio" name="read" id = "readNo" checked = "checked" value = "No"/>
                           <label for="readNo">No</label>
                           </div>
                         </div>
@@ -50,7 +50,9 @@
                       <button class = submit-btn id = "submit-btn" type="button" >Submit</button>
                     </fieldset>
                   </form>
-                
+                  <div class = "alert closed">
+                    Please fill all fields.
+                  </div>
             </div>
         </div>
 
