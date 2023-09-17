@@ -12,7 +12,7 @@
       <div class="header">
         <h1>Book library</h1>
       </div>
-        <button id = "open-popup">Open popup</button>
+        <button id = "open-popup">Add new book</button>
 
         <div class="popup-window" id = "popup-window">
             <div class="popup-window-inner">
@@ -32,17 +32,17 @@
                         </div>
                         <div class = labelinput>
                           <label for="pages">Pages</label>
-                          <input type="number" name="pages" id = "pages"/>
+                          <input type="number" name="pages" min="0" id = "pages"/>
                         </div>
                         <div class = "radio-container">
                           <p>Read?</p>
                           <div>
-                            <input type="radio" name="read" id = "readYes" value = "yes"/>
+                            <input type="radio" name="read" id = "readYes" value = "Yes"/>
                             <label for="readYes">Yes</label>
                           </div>
                           
                           <div>
-                            <input type="radio" name="read" id = "readNo" value = "no"/>
+                            <input type="radio" name="read" id = "readNo" value = "No"/>
                           <label for="readNo">No</label>
                           </div>
                         </div>
@@ -57,17 +57,7 @@
       <div class="book-list">
         <h1>Book list</h1>
         <div class="book-container" id = "book-container">
-          <div class="book-template">
-            <p>Book1</p>
-          </div>
-          <div class="book-template">
-            <p>Book2</p>
-          </div>
-          <div class="book-template">
-            <p>Book3</p>
-          </div>
-          <div class="book-template">
-            <p>Book3</p>
+          
           </div>
         </div>
       </div>
