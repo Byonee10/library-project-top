@@ -1,173 +1,259 @@
-html,body{
-    height: 100vh;
-    margin:0;
-}
+    html,body{
+        height: 100vh;
+        margin:0;
+    }
 
-#open-popup {
-    width: 8em;
-    position: absolute;
-    left: 10%;
-    transform: translate(-50%, -50%);
-    top: 15%;
-    height:6vh;
-    font-size: 2vh;;
-    z-index: 1;
-}
+    #open-popup {
+        width: 8em;
+        position: absolute;
+        left: 10%;
+        transform: translate(-50%, -50%);
+        top: 15%;
+        height:6vh;
+        font-size: 2vh;;
+        z-index: 1;
+    }
 
-.header{
-    background-color: #00796b; /* Teal */
-    color: white;
-}
+    .header{
+        background-color: #00796b; /* Teal */
+        color: white;
+    }
 
-.popup-window-inner{
-   
-    padding: 35px;
-    background-color: #f0f0f0; /* Light gray */
-    border: 1px solid #ccc;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-
-    font-weight: 600;
-    font-size: 25px;
-    border-radius: 5px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-
-.radio-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.radio-container div {
-    display:flex;
-    width:100px;
-}
-.hidden{
-    display:none;
-}
-fieldset{
-    border:0;
-}
-.labelinput{
-    display:flex;
-    justify-content: flex-end;
-    gap:20px;
+    .popup-window-inner{
     
-}
-input{
-    background-color: rgba(12, 74, 74, 0.081);
-    accent-color: rgba(12, 74, 74);
-    font-weight: 700;
-    height: 25px;
-}
-input[type="radio"]{
-    width: 100%;
-    height: 2em;
-    border:0px;
-}
-.form{
-    margin:auto auto;
-    display:flex;
-    flex-direction: column;
-    gap:15px;
-    background-color: #f0f0f0; /* Light gray */
-    padding: 20px;
-    border-radius: 5px;
-}
-input[type="text"],
-input[type="number"] {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-input[type="radio"] {
-    margin-right: 5px;
-}
-.submit-btn{
-    position:relative;
-    left:50%;
-    transform: translateX(-50%);
+        padding: 35px;
+        background-color: #f0f0f0; /* Light gray */
+        border: 1px solid #ccc;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 
-    font-size: 25px;
-}
-legend{
-    margin:25px auto;
-    font-weight: 800;
-    font-size:30px;
-    color:rgb(0,0,0)
-}
-.book-container{
-    display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 20px;
-    width:100vh;
+        font-weight: 600;
+        font-size: 25px;
+        border-radius: 5px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index:999;
+    }
 
-}
-.book-list{
+
+
+
+    .hidden{
+        display:none;
+    }
+    fieldset{
+        border:0;
+    }
+    .labelinput{
+        display:flex;
+        justify-content: flex-end;
+        gap:20px;
+        
+    }
+    input{
+        background-color: rgba(12, 74, 74, 0.081);
+        accent-color: rgba(12, 74, 74);
+        font-weight: 700;
+        height: 25px;
+    }
+    input[type="radio"]{
+        width: 100%;
+        height: 2em;
+        border:0px;
+    }
+    .form{
+        margin:auto auto;
+        display:flex;
+        flex-direction: column;
+        gap:15px;
+        background-color: #f0f0f0; /* Light gray */
+        padding: 20px;
+        border-radius: 5px;
+    }
+    input[type="text"],
+    input[type="number"] {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+    .submit-btn{
+        position:relative;
+        left:50%;
+        transform: translateX(-50%);
+
+        font-size: 25px;
+    }
+    legend{
+        margin:25px auto;
+        font-weight: 800;
+        font-size:30px;
+        color:rgb(0,0,0)
+    }
+    .book-container{
+        display:grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 20px;
+        width:100vh;
+
+    }
+    .book-list{
+        
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-template{
+        border: 1px solid #ccc;
+        height:25vh;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+    }
+
+    .book-properties{
+        display:flex;
+        gap:5px;
+        padding:15px;
+    }
+    button{
+        background-color: #00796b;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #005a4e; /* Slightly darker shade */
+    }
+
+    /* The alert message box */
+    .alert {
+        padding: 20px;
+        background-color: #f44336; /* Red */
+        color: white;
+        margin-bottom: 15px;
+    }
     
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /* The close button */
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    /* When moving the mouse over the close button */
+    .closebtn:hover {
+        color: black;
+    }
 
-.book-template{
-    border: 1px solid #ccc;
-    height:25vh;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
+    
+    .closed{
+        display:none;
+    }
 
-.book-properties{
-    display:flex;
-    gap:5px;
-    padding:15px;
-}
-button{
+    .readYes,.readNo{
+        
+        border:1px solid black;
+    }
+    .readYes{
+        background-color: green;
+        width: 100%;
+        
+    }
+    .readNo{
+        background-color: red;
+        width: 100%;
+    }
+    
+    .radio-container{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width:160px;
+        position:relative;
+        left:20%
+    }
+    /* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
     background-color: #00796b;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-button:hover {
-    background-color: #005a4e; /* Slightly darker shade */
-}
-
-/* The alert message box */
-.alert {
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    margin-bottom: 15px;
   }
   
-  /* The close button */
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
+  input:focus + .slider {
+    box-shadow: 0 0 1px #00796b;
   }
   
-  /* When moving the mouse over the close button */
-  .closebtn:hover {
-    color: black;
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
   }
-
   
-  .closed{
-    display:none;
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .bookReadStatus{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:10%;
+    height: 50px;
   }

@@ -32,24 +32,34 @@ const submitBtn = document.getElementById("submit-btn");
 const bookContainer = document.getElementById("book-container");
 
 
-function addBookToGrid(book,index){
-        const newBook = document.createElement("div");
-        newBook.classList.add("book-template");
-        newBook.innerHTML = `<div class="bookProperties">
-            <h3>Title: ${book.title}</h3>
-            <p>Author: ${book.author}</p>
-            <p>Pages: ${book.pages}</p>
-            <p>Read?: ${book.read}</p>
-            <button type="button" class="remove-button" data-index="${index}"> REMOVE </button>
-        </div>`;
-        
-        // Add an event listener to the remove button
-        bookContainer.appendChild(newBook);
+function addBookToGrid(book, index) {
+    const newBook = document.createElement("div");
+    newBook.classList.add("book-template");
+    newBook.innerHTML = `<div class="bookProperties">
+        <h3>Title: ${book.title}</h3>
+        <p>Author: ${book.author}</p>
+        <p>Pages: ${book.pages}</p>
+        <div class = "bookReadStatus" >Read Status <label class="switch">
+                        
+        <input type="checkbox" ${book.read ? 'checked' : ''}>
+        <span class="slider round"></span>
+      </label></div>
+        <button type="button" class="remove-button" data-index="${index}"> REMOVE </button>
+    </div>`;
+    
+    // Add an event listener to the remove button
+    bookContainer.appendChild(newBook);
 
-        const removeButton = newBook.querySelector(".remove-button");
-        removeButton.addEventListener("click", deleteBook);
-            
-    }
+    const removeButton = newBook.querySelector(".remove-button");
+    removeButton.addEventListener("click", deleteBook);
+
+    // Add an event listener to the read status checkbox
+    const readStatusCheckbox = newBook.querySelector('.switch input[type="checkbox"]');
+    readStatusCheckbox.addEventListener('change', function() {
+      myLibrary[index].read = this.checked;
+    });
+}
+
     
 function render(startIndex=0){
     console.log("render called")
@@ -74,14 +84,14 @@ function addBookToList(){
     const titleInput = document.getElementById("name").value;
     const authorInput = document.getElementById("author").value;
     const pagesInput = document.getElementById("pages").value;
-    const readInput = document.querySelector('input[name="read"]:checked').value;
-    if (titleInput === "" || authorInput === "" || pagesInput === "" || !readInput) {
+    const readInput = toggleCheckbox.checked?true:false;
+    if (titleInput === "" || authorInput === "" || pagesInput === "") {
         alertMessagePop(true);
         document.getElementById("name").value = "";
         document.getElementById("author").value = "";
         document.getElementById("pages").value = "";
 
-        document.querySelector('input[id="readNo"]').checked = true;
+        toggleCheckbox.checked = false;
 
 
         return;
@@ -99,18 +109,30 @@ function addBookToList(){
     document.getElementById("name").value = "";
     document.getElementById("author").value = "";
     document.getElementById("pages").value = "";
-    document.querySelector('input[id="readNo"]').checked = true;
+    toggleCheckbox.checked = false;
     addBookToGrid(book, myLibrary.length-1);
 }
 function alertMessagePop(bool){
     const alertMsg = document.querySelector(".alert");
     if(bool){
-    alertMsg.classList.add("closed");}
+    alertMsg.classList.remove("closed");}
     else{
-        alertMsg.classList.remove("closed");}
+        alertMsg.classList.add("closed");}
 
     }
 
 const inputs = document.querySelectorAll("input");
 
 submitBtn.addEventListener("click",addBookToList);
+
+
+const toggleCheckbox = document.querySelector('.switch input[type="checkbox"]');
+
+toggleCheckbox.addEventListener('change', function() {
+  if (toggleCheckbox.checked) {
+    console.log('Toggle button is enabled');
+  } else {
+    // The toggle button is disabled (checkbox is not checked)
+    console.log('Toggle button is disabled');
+  }
+});
