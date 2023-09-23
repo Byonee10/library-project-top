@@ -1,11 +1,12 @@
 const myLibrary = [];
 const alert = document.querySelector(".alert");
-function Book(title,author,pages,read) {
+class Book {
+    constructor(title,author,pages,read){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
-    this.info = function(){
+    this.read = read;}
+    info = function(){
         return title + " by " + author + ", " + pages + " pages, "+ read ? "read":"not read yet";
     }
 }
@@ -97,12 +98,8 @@ function addBookToList(){
         return;
     }
     alertMessagePop(false);
-    const book = {
-        title: titleInput,
-        author: authorInput,
-        pages: pagesInput,
-        read: readInput
-    };
+    const book = new Book(titleInput,authorInput,pagesInput,readInput);
+       
     
     myLibrary.push(book);
     
@@ -128,11 +125,3 @@ submitBtn.addEventListener("click",addBookToList);
 
 const toggleCheckbox = document.querySelector('.switch input[type="checkbox"]');
 
-toggleCheckbox.addEventListener('change', function() {
-  if (toggleCheckbox.checked) {
-    console.log('Toggle button is enabled');
-  } else {
-    // The toggle button is disabled (checkbox is not checked)
-    console.log('Toggle button is disabled');
-  }
-});
